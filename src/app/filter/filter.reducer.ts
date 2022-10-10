@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { setFilter, validFilters } from './filter.actions';
 
-export const initialState: validFilters = 'todos';
+export const initialState: validFilters = 'todas';
 
 export const filterReducer = createReducer<validFilters, Action>(
   initialState,
