@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import * as actions from 'src/app/filter/filter.actions';
+import * as filterActions from 'src/app/filter/filter.actions';
+import * as todoActions from '../todo.actions';
 
 @Component({
   selector: 'app-todo-footer',
@@ -10,8 +11,8 @@ import * as actions from 'src/app/filter/filter.actions';
 })
 export class TodoFooterComponent implements OnInit {
 
-  currentFilter: actions.validFilters = 'todas';
-  filters: actions.validFilters[] = ['todas', 'completadas', 'pendientes'];
+  currentFilter: filterActions.validFilters = 'todas';
+  filters: filterActions.validFilters[] = ['todas', 'completadas', 'pendientes'];
   pendingTodos: number = 0;
 
 
@@ -26,7 +27,11 @@ export class TodoFooterComponent implements OnInit {
     });
   }
 
-  onFilterChanged(filter: actions.validFilters) {
-    this.store.dispatch(actions.setFilter({ filter }));
+  onFilterChanged(filter: filterActions.validFilters) {
+    this.store.dispatch(filterActions.setFilter({ filter }));
+  }
+
+  cleanCompleted() {
+    this.store.dispatch(todoActions.cleanCompleted());
   }
 }

@@ -24,3 +24,7 @@ export const toggleAll = createAction(
   '[Todo Page component] Toggle All Todos',
   props<{ completed: boolean}>()
 );
+
+export const cleanCompleted = createAction(
+  '[Todo Footer component] Clean Completed Todos'
+);
