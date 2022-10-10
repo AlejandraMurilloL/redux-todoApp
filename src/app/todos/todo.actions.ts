@@ -14,3 +14,8 @@ export const edit = createAction(
   '[Todo Item component] Edit Todo',
   props<{ id: number, text: string }>()
 );
+
+export const remove = createAction(
+  '[Todo Item component] Delete Todo',
+  props<{ id: number}>()
+);
