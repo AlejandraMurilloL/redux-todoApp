@@ -18,9 +18,9 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit(): void {
     //this.store.select('todos').subscribe((todos) => this.todos = todos);
-    this.store.subscribe((state) => {
-      this.todos = state.todos;
-      this.currentFilter = state.filter;
+    this.store.subscribe(({todos, filter}) => {
+      this.todos = todos;
+      this.currentFilter = filter;
     });
   }
 
